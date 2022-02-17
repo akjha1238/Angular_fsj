@@ -1,15 +1,15 @@
 <header>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
-        <div><a href="wwww.google.com" class="navbar-brand"></a></div>
+        <div><a href="wwww.google.com" class="navbar-brand">Todo's</a></div>
         
         <ul class="navbar-nav text-white">
-            <li><a routerLink="/welcome" class="nav-link">Home</a></li>
-            <li><a routerLink="/todos" class="nav-link">Todos</a></li>
+            <li class="mx-4" *ngIf="this.hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="/welcome" class="nav-link">Home</a></li>
+            <li *ngIf="this.hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="/todos" class="nav-link">Todos</a></li>
             
         </ul>
         <ul class="navbar-nav navbar-collapse justify-content-end text-white">
-            <li><a routerLink="/login" class="nav-link">Login</a></li>
-            <li><a routerLink="/logout" class="nav-link">Logout</a></li>
+            <li class="mx-4" *ngIf="!this.hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="/login" class="nav-link">Login</a></li>
+            <li class="mr-5" *ngIf="this.hardcodedAuthenticationService.isUserLoggedIn()"><a routerLink="/logout" class="nav-link">Logout</a></li>
             
         </ul>
     </nav>
