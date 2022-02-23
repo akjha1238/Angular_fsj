@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { WelcomeDataServiceService } from '../service/data/welcome-data-service.service';
 
 
 @Component({
@@ -7,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  messageFromService="";
+  errorFromService="";
 
-  constructor() { }
+  constructor(private service: WelcomeDataServiceService,) { }
 
   ngOnInit(): void {
   }
+  getWelcomeMessage(){
+    this.service.executeHelloBeanService().subscribe(response => 
+      this.messageFromService=response.message, error=>this.errorFromService=error.error.message
+      );
+  }
 
+  // handleSuccesfulResponse(response: Object){
+  //   console.log(response.message);
+  // }
 }

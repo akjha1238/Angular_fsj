@@ -5,14 +5,18 @@
     
     <thead>
         <tr>
-            <td>id</td>
+            <td>Id</td>
             <td>Description</td>
+            <td>Target Date</td>
+            <td>Completed?</td>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let todo of todos">
             <td>{{todo.id}}</td>
             <td>{{todo.description}}</td>
+            <td>{{todo.targetDate | date}}</td>
+            <td>{{todo.done}}</td>
         </tr>
     </tbody>
 </table>

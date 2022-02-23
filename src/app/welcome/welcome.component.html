@@ -2,4 +2,19 @@
 <h1 >welcome !!</h1>
 For Todo page <a routerLink="/todos">click here</a>
 </div>
+
+<div class="container">
+    Click here to get customized welcome message
+    <button (click)="getWelcomeMessage()" class="btn btn-success">Get Welcome Message</button>
+</div>
+
+<div class="container" *ngIf="messageFromService">
+    Fetched message from backend
+    <h3>{{messageFromService}}</h3>
+    
+</div>
+<div class="container" *ngIf="errorFromService">
+    <h3>{{errorFromService}}</h3>
+    
+</div>
 <router-outlet></router-outlet>
