@@ -1,6 +1,9 @@
-
+<div class="container">
+     <h2 class="alert alert-success" ngbTooltip="Will disappear in 5s" *ngIf="message">{{message}}</h2>
+</div>
 <div class="container">
 <h1 class="header">My Todo's</h1>
+
 <table class="table table-striped" >
     
     <thead>
@@ -9,6 +12,7 @@
             <td>Description</td>
             <td>Target Date</td>
             <td>Completed?</td>
+            <td>Action</td>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +21,7 @@
             <td>{{todo.description}}</td>
             <td>{{todo.targetDate | date}}</td>
             <td>{{todo.done}}</td>
+            <td><button class="btn btn-warning" (click)="deleteTodo(todo.id)">Delete</button></td>
         </tr>
     </tbody>
 </table>
